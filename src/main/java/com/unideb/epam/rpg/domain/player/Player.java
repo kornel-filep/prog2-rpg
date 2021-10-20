@@ -7,11 +7,10 @@ public abstract class Player extends Entity {
     private int currentXp;
     private int hpRegen;
 
-    public Player(String name, int maxHP, int currentHp, int attackDamage,
-                  int xpToLevelUp, int currentXp, int hpRegen) {
-        super(name, maxHP, currentHp, attackDamage);
-        this.xpToLevelUp = xpToLevelUp;
-        this.currentXp = currentXp;
+    public Player(String name, int maxHP, int attackDamage, int hpRegen) {
+        super(name, maxHP, attackDamage);
+        this.xpToLevelUp = 100;
+        this.currentXp = 0;
         this.hpRegen = hpRegen;
     }
 
@@ -37,5 +36,18 @@ public abstract class Player extends Entity {
 
     public void setHpRegen(int hpRegen) {
         this.hpRegen = hpRegen;
+    }
+
+    @Override
+    public String toString() {
+        return "Player{" +
+                "name='" + name + '\'' +
+                ", maxHP=" + maxHP +
+                ", currentHp=" + currentHp +
+                ", attackDamage=" + attackDamage +
+                ", xpToLevelUp=" + xpToLevelUp +
+                ", currentXp=" + currentXp +
+                ", hpRegen=" + hpRegen +
+                '}';
     }
 }

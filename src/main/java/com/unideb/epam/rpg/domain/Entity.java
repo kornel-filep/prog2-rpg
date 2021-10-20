@@ -1,16 +1,23 @@
 package com.unideb.epam.rpg.domain;
 
 public abstract class Entity {
-    private String name;
-    private int maxHP;
-    private int currentHp;
-    private int attackDamage;
+    protected String name;
+    protected int maxHP;
+    protected int currentHp;
+    protected int attackDamage;
 
-    public Entity(String name, int maxHP, int currentHp, int attackDamage) {
+    public Entity(String name, int maxHP, int attackDamage) {
         this.name = name;
         this.maxHP = maxHP;
-        this.currentHp = currentHp;
+        this.currentHp = maxHP;
         this.attackDamage = attackDamage;
+    }
+
+    public void attack(Entity toAttackThis) {
+        System.out.println(name + " attacks " + toAttackThis.name);
+        toAttackThis.setCurrentHp(
+                toAttackThis.getCurrentHp() - this.getAttackDamage()
+        );
     }
 
     public String getName() {
@@ -43,5 +50,15 @@ public abstract class Entity {
 
     public void setAttackDamage(int attackDamage) {
         this.attackDamage = attackDamage;
+    }
+
+    @Override
+    public String toString() {
+        return "Entity{" +
+                "name='" + name + '\'' +
+                ", maxHP=" + maxHP +
+                ", currentHp=" + currentHp +
+                ", attackDamage=" + attackDamage +
+                '}';
     }
 }
