@@ -2,6 +2,7 @@ package com.unideb.epam.rpg.game;
 
 import com.unideb.epam.rpg.domain.monster.Goblin;
 import com.unideb.epam.rpg.domain.monster.Monster;
+import com.unideb.epam.rpg.domain.monster.Orc;
 import com.unideb.epam.rpg.domain.player.Player;
 
 import java.util.Random;
@@ -12,7 +13,8 @@ public class GameService {
 
     public void start(Player player) {
         while (player.getCurrentHp() > 0) {
-            Monster monster = new Goblin("El Goblino " + goblinCounter++);
+            //Monster monster = new Goblin("El Goblino " + goblinCounter++);
+            Monster monster = new Orc("El Orco " + goblinCounter++);
             while (monster.getCurrentHp() > 0 && player.getCurrentHp() > 0) {
                 battle(player, monster);
                 System.out.println(player);
